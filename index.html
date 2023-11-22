@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interface de Connexion</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+
+    .form-group button {
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-container">
+  <h2>Connexion</h2>
+  <div class="form-group">
+    <label for="username">Nom d'utilisateur :</label>
+    <input type="text" id="username" placeholder="Entrez votre nom d'utilisateur">
+  </div>
+
+  <div class="form-group">
+    <label for="password">Mot de passe :</label>
+    <input type="password" id="password" placeholder="Entrez votre mot de passe">
+  </div>
+
+  <div class="form-group">
+    <button onclick="login()">Se connecter</button>
+  </div>
+</div>
+
+<script>
+  function login() {
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+    // Ajoutez ici votre logique de connexion, par exemple, une requête AJAX vers un serveur.
+    // Pour cet exemple, nous allons simplement afficher les informations dans la console.
+    console.log('Nom d\'utilisateur:', username);
+    console.log('Mot de passe:', password);
+  }
+</script>
+
+</body>
+</html>
