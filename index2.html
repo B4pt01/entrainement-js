@@ -1,0 +1,60 @@
+import tkinter as tk
+import mysql.connector
+
+def connect_to_database():
+    # Établir une connexion à la base de données
+    db = mysql.connector.connect(
+        host="localhost",
+        user="votre_nom_utilisateur",
+        password="votre_mot_de_passe",
+        database="votre_base_de_donnees"
+    )
+    return db
+
+def login():
+    username = entry_username.get()
+    password = entry_password.get()
+
+    db = connect_to_database()
+    cursor = db.cursor()
+
+    # Exécuter la requête pour vérifier les informations de connexion
+    query = "SELECT * FROM users WHERE username = %s AND password = %s"
+    cursor.execute(query, (username, password))
+    result = cursor.fetchone()
+
+    if result:
+        label_result.config(text="Connexion réussie!")
+    else:
+        label_result.config(text="Échec de la connexion!")
+
+    # Fermer la connexion à la base de données
+    db.close()
+
+# Créer une fenêtre Tkinter
+window = tk.Tk()
+window.title("Interface de Connexion")
+
+# Créer des étiquettes et des champs de saisie pour le nom d'utilisateur et le mot de passe
+label_username = tk.Label(window, text="Nom d'utilisateur:")
+entry_username = tk.Entry(window)
+
+label_password = tk.Label(window, text="Mot de passe:")
+entry_password = tk.Entry(window, show="*")
+
+# Créer un bouton de connexion
+button_login = tk.Button(window, text="Se Connecter", command=login)
+
+# Créer une étiquette pour afficher le résultat de la connexion
+label_result = tk.Label(window, text="")
+
+# Organiser les widgets dans la fenêtre
+label_username.pack()
+entry_username.pack()
+label_password.pack()
+entry_password.pack()
+button_login.pack()
+label_result.pack()
+
+# Lancer la boucle principale Tkinter
+window.mainloop()
