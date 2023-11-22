@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Sandbox</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form id="loginForm">
+            <h2>Connexion</h2>
+            <label for="username">Nom d'utilisateur:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Mot de passe:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="button" onclick="login()">Connexion</button>
+        </form>
+
+        <form id="signupForm">
+            <h2>Inscription</h2>
+            <label for="newUsername">Nouveau nom d'utilisateur:</label>
+            <input type="text" id="newUsername" name="newUsername" required>
+            <label for="newPassword">Nouveau mot de passe:</label>
+            <input type="password" id="newPassword" name="newPassword" required>
+            <button type="button" onclick="signup()">Inscription</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
